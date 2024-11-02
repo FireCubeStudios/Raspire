@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspire", "Raspire\Raspire.csproj", "{1FEBD397-1389-420A-8F05-11FFC1B740DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FEBD397-1389-420A-8F05-11FFC1B740DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEBD397-1389-420A-8F05-11FFC1B740DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEBD397-1389-420A-8F05-11FFC1B740DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEBD397-1389-420A-8F05-11FFC1B740DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA66AAB0-F15C-4BF6-AD1A-8CF941A16948}
+	EndGlobalSection
+EndGlobal
