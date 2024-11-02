@@ -1,0 +1,32 @@
+name: Deploy .NET Aspire project to Raspberry Pi 5 with Docker
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t aspire-firesteel-image:latest .
+
+      - name: Stop old Docker container
+        run: |
+          docker stop aspire-firesteel || true
+          docker rm aspire-firesteel || true
+          
+      # Use the Raspberry Pi port 16003 to listen from the container port 8080
+      # The port 16003 is used by cloudflare tunnel to display dashboard to website
+      - name: Run new Docker container
+        run: |
+          docker run -d --name aspire-firesteel \
+            --restart unless-stopped \
+            -p 16003:8080 \
+            aspire-firesteel-image:latest
