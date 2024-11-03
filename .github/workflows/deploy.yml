@@ -24,9 +24,12 @@ jobs:
           
       # Use the Raspberry Pi port 16003 to listen from the container port 15219
       # The port 16003 is used by cloudflare tunnel to display dashboard
+      # The other ports are used by .NET Aspire
       - name: Run new Docker container
         run: |
           docker run -d --name aspire-firesteel \
             --restart unless-stopped \
             -p 16003:15219 \
+            -p 19238:19238 \
+            -p 20237:20237 \
             aspire-firesteel-image:latest
