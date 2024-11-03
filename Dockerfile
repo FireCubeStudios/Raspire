@@ -7,19 +7,17 @@ WORKDIR /app
 # Copy the entire project
 COPY . ./
 
-# Restore its dependencies
+# Update installed .NET workloads
+RUN dotnet workload update
+
+# Install the .NET Aspire workload
+RUN dotnet workload install aspire
+
+# Restore dependencies
 RUN dotnet restore
 
-# Build the project
-RUN dotnet publish ./Raspire/Raspire.csproj -c Release -o out
-
-# Use the .NET Core runtime image to run the application
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS runtime
-WORKDIR /app
-COPY --from=build /app/out .
-
-# Expose the port the website runs on
+# Expose the port the .NET Aspire website runs on
 EXPOSE 80
 
-# Set the entry point for the website
-ENTRYPOINT ["dotnet", "raspire.dll"]
+# Run the .NET Aspire website
+CMD ["dotnet", "run", "--project", "Raspire/Raspire.csproj"]
