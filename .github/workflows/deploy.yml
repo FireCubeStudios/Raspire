@@ -22,8 +22,8 @@ jobs:
           docker stop aspire-firesteel || true
           docker rm aspire-firesteel || true
           
-      # Use the Raspberry Pi port 16003 to listen from the container port 8080
-      # The port 16003 is used by cloudflare tunnel to display dashboard to website
+      # Use the Raspberry Pi port 16003 to listen from the container port 15219
+      # The port 16003 is used by cloudflare tunnel to display dashboard
       - name: Run new Docker container
         run: |
           docker run -d --name aspire-firesteel \
