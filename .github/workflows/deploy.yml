@@ -28,5 +28,5 @@ jobs:
         run: |
           docker run -d --name aspire-firesteel \
             --restart unless-stopped \
-            -p 16003:8080 \
+            -p 16003:15219 \
             aspire-firesteel-image:latest
