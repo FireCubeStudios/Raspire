@@ -7,7 +7,13 @@ WORKDIR /app
 # Copy the entire project
 COPY . ./
 
-# Restore its dependencies
+# Update installed .NET workloads
+RUN dotnet workload update
+
+# Install the .NET Aspire workload
+RUN dotnet workload install aspire
+
+# Restore dependencies
 RUN dotnet restore
 
 # Build the project
@@ -18,8 +24,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out .
 
-# Expose the port the website runs on
+# Expose the port the .NET Aspire website runs on
 EXPOSE 80
 
-# Set the entry point for the website
+# Set the entry point for the .NET Aspire website
 ENTRYPOINT ["dotnet", "raspire.dll"]
