@@ -17,7 +17,7 @@ RUN dotnet workload install aspire
 RUN dotnet restore
 
 # Expose the port the .NET Aspire website runs on
-EXPOSE 80
+EXPOSE 15219
 
 # Run the .NET Aspire website
 CMD ["dotnet", "run", "--project", "Raspire/Raspire.csproj"]
