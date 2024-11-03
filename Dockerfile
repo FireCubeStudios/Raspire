@@ -21,5 +21,8 @@ EXPOSE 16003
 EXPOSE 19238
 EXPOSE 20237
 
+# Listen on all IP addresses
+ENV ASPNETCORE_URLS=http://0.0.0.0:16003
+
 # Run the .NET Aspire website
 CMD ["dotnet", "run", "--project", "Raspire/Raspire.csproj"]
