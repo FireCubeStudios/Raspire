@@ -19,7 +19,7 @@ RUN dotnet restore
 # Build the project
 RUN dotnet publish ./Raspire/Raspire.csproj -c Release -o out
 
-# Use the .NET Core runtime image to run the application
+# Use the .NET 8 SDK runtime image to run the application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out .
