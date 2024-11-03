@@ -17,7 +17,7 @@ RUN dotnet workload install aspire
 RUN dotnet restore
 
 # Expose ports the .NET Aspire website runs on
-EXPOSE 15219
+EXPOSE 16003
 EXPOSE 19238
 EXPOSE 20237
 
